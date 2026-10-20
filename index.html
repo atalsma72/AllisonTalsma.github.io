@@ -61,30 +61,52 @@ html {
     padding: 45px 32px;
 }
 
-/* ===== TIMELINE NAVIGATION ===== */
+/* ===== TOP NAVIGATION ===== */
 
 .timeline-nav {
-    position: fixed;
-    left: 20px;
-    top: 80px;
-    width: 160px;
-    z-index: 100;
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+    justify-content: center;
+    gap: 10px;
+    padding: 14px 24px;
+    background: #f1f1f1;
+    border-bottom: 1px solid #d9dfe5;
+}
+
+.timeline-nav a {
+    display: block;
+    flex: 0 1 auto;
+    min-width: 145px;
+    max-width: 220px;
+    text-decoration: none;
+    color: inherit;
 }
 
 .timeline-step {
+    height: 100%;
     background: white;
     border-left: 5px solid #0F4C81;
-    padding: 10px;
-    margin-bottom: 12px;
+    padding: 11px 12px;
+    margin: 0;
     font-weight: bold;
     border-radius: 4px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.15);
-    transition: background .2s, color .2s;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.12);
+    transition: background .2s, color .2s, transform .2s;
 }
 
-.timeline-step:hover {
+.timeline-step:hover,
+.timeline-nav a:focus-visible .timeline-step {
     background: #0F4C81;
     color: white;
+}
+
+.main-content {
+    margin-left: 0;
+    padding: 0 28px;
+    min-width: 0;
 }
 
 /* ===== ABOUT SECTION ===== */
@@ -223,62 +245,20 @@ hr {
 
 /* ===== RESPONSIVE LAYOUT ===== */
 
-.timeline-nav {
-    position: fixed;
-    left: 20px;
-    top: 24px;
-    width: 160px;
-    z-index: 1000;
-    display: block;
-}
-
-.timeline-nav a {
-    display: block;
-    text-decoration: none;
-    color: inherit;
-    margin-bottom: 12px;
-}
-
-.timeline-step {
-    background: white;
-    border-left: 5px solid #0F4C81;
-    padding: 12px 10px;
-    margin: 0;
-    font-weight: bold;
-    border-radius: 4px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.15);
-    transition: background .2s, color .2s;
-}
-
-.timeline-step:hover {
-    background: #0F4C81;
-    color: white;
-}
-
-.main-content {
-    margin-left: 210px;
-    padding: 0 28px;
-    min-width: 0;
-}
-
-@media (max-width: 1200px) {
+@media (max-width: 900px) {
     .timeline-nav {
-        display: block;
-        position: static;
-        width: auto;
-        padding: 16px;
-        background: #f1f1f1;
+        justify-content: flex-start;
+        padding: 12px 16px;
+        gap: 8px;
     }
 
     .timeline-nav a {
-        display: inline-block;
-        vertical-align: top;
-        margin: 4px;
-        max-width: 180px;
+        min-width: 135px;
+        max-width: none;
+        flex: 1 1 160px;
     }
 
     .main-content {
-        margin-left: 0;
         padding: 0 24px;
     }
 }
@@ -287,28 +267,20 @@ hr {
     .timeline-nav {
         display: grid;
         grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 10px;
+        gap: 8px;
         padding: 12px;
     }
 
     .timeline-nav a {
-        display: block;
-        margin: 0;
-        max-width: none;
+        min-width: 0;
+        width: 100%;
     }
 
-    .main-content {
-        padding: 0 14px;
+    .timeline-step {
+        padding: 10px;
+        font-size: 14px;
     }
-}
 
-    .main-content {
-        margin-left: 0;
-        padding: 0 24px;
-    }
-}
-
-@media (max-width: 700px) {
     .main-content {
         padding: 0 14px;
     }
@@ -341,11 +313,45 @@ hr {
         width: 100%;
     }
 }
+
+/* ===== PROFESSIONAL DEVELOPMENT IMAGE PLACEHOLDER ===== */
+
+.development-preview {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    min-height: 220px;
+    margin-top: 18px;
+    background: #f0f3f6;
+    border: 1px dashed #9aa9b8;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 18px;
+    color: #526579;
+    overflow: hidden;
+}
+
+.development-preview img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.development-caption {
+    margin-top: 10px;
+    color: #526579;
+    font-size: 0.92em;
+}
+
 </style>
 
 </head>
 
 <body class="w3-light-grey">
+
+<a class="w3-hide" href="#main-content">Skip to main content</a>
 
 <!-- ===== TIMELINE NAVIGATION ===== -->
 
@@ -379,7 +385,7 @@ hr {
 
 <!-- ===== MAIN CONTENT ===== -->
 
-<main class="main-content">
+<main class="main-content" id="main-content">
 
 <!-- ===== HERO ===== -->
 
@@ -1203,7 +1209,33 @@ GeoJSON Data</div>
                 and long-term professional development.
             </p>
 
-            <!-- Add additional GISP content here as needed -->
+            <h4>Continued Learning & Professional Development</h4>
+
+            <p>
+                Ongoing learning through courses, workshops, training sessions,
+                and educational events supports my continued growth in GIS,
+                geospatial technology, and professional best practices.
+            </p>
+
+            <div class="development-preview">
+                <!--
+                  To add your screenshot, place the image in your repository
+                  (for example: images/gis-professional-development.jpg), then
+                  replace the placeholder text below with:
+                  <img src="images/gis-professional-development.jpg"
+                       alt="Screenshot of GIS courses and professional development sessions">
+                -->
+                <span>
+                    <strong>Professional Development Gallery</strong><br>
+                    Add a screenshot of completed courses, workshops, and
+                    educational sessions here.
+                </span>
+            </div>
+
+            <p class="development-caption">
+                A visual record of ongoing professional development and commitment
+                to continuous learning.
+            </p>
 
         </div>
 
