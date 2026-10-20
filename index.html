@@ -196,11 +196,12 @@ hr {
 
 /* ===== PROFESSIONAL RECOGNITION ===== */
 
+
 .recognition-grid {
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 24px;
-    align-items: stretch;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 28px;
+    align-items: start;
 }
 
 .recognition-card {
@@ -210,7 +211,7 @@ hr {
     box-shadow: 0 2px 8px rgba(0,0,0,.12);
     border-radius: 3px;
     min-width: 0;
-    height: 100%;
+    width: 100%;
 }
 
 .map-project {
@@ -326,27 +327,33 @@ hr {
 
 /* ===== PROFESSIONAL DEVELOPMENT IMAGE PLACEHOLDER ===== */
 
+
 .development-preview {
     width: 100%;
-    aspect-ratio: 16 / 9;
-    min-height: 220px;
+    height: auto;
+    min-height: 0;
+    aspect-ratio: auto;
     margin-top: 18px;
-    background: #f0f3f6;
-    border: 1px dashed #9aa9b8;
-    border-radius: 4px;
+    padding: 0;
+    background: transparent;
+    border: none;
+    border-radius: 0;
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding: 18px;
-    color: #526579;
-    overflow: hidden;
+    gap: 24px;
+    overflow: visible;
 }
 
-.development-preview img {
+.coursework-image {
+    display: block;
     width: 100%;
-    height: 100%;
+    max-width: 850px;
+    height: auto;
     object-fit: contain;
+    border: 1px solid #d9dfe5;
+    border-radius: 4px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.10);
 }
 
 .development-caption {
@@ -440,16 +447,6 @@ hr {
                 Enterprise GIS, Web GIS Development, GIS Automation,
                 Asset Management, Data Governance, and Business
                 Process Improvement.
-            </p>
-
-            <p>
-                Throughout my career, I have focused on modernizing
-                workflows, improving data quality, supporting users,
-                and developing sustainable GIS solutions that improve
-                organizational decision-making. My experience includes
-                Enterprise GIS, ArcGIS Portal, Web GIS development,
-                automation, LiDAR processing, data governance,
-                application development, and stakeholder collaboration.
             </p>
         </div>
 
@@ -559,11 +556,17 @@ hr {
     <h2>Professional Journey</h2>
 
     <p>
-        My career has consistently centered around technology,
-        problem-solving, and improving workflows. Each role has
-        contributed to my understanding of how technology, data,
-        and GIS can be used to improve organizational decision-making
-        and operational efficiency.
+    My career has consistently centered around technology,
+    problem-solving, and improving workflows. Throughout my career,
+    I have been particularly interested in the intersection of
+    technology, data, and business processes. Whether supporting
+    users, developing Web GIS applications, implementing automation,
+    managing Enterprise GIS environments, or improving municipal
+    workflows, I focus on practical ways GIS can deliver long-term
+    value through better data, better processes, and better
+    decision-making. Each role has strengthened my understanding
+    of how technology and GIS can improve organizational
+    decision-making and operational efficiency.
     </p>
 
     <div class="w3-card w3-white w3-padding">
@@ -1239,19 +1242,20 @@ GeoJSON Data</div>
             </p>
 
             <div class="development-preview">
-                <!--
-                  To add your screenshot, place the image in your repository
-                  (for example: images/gis-professional-development.jpg), then
-                  replace the placeholder text below with:
-                  <img src="images/gis-professional-development.jpg"
-                       alt="Screenshot of GIS courses and professional development sessions">
-                -->
-                <span>
-                    <strong>Professional Development Gallery</strong><br>
-                    Add a screenshot of completed courses, workshops, and
-                    educational sessions here.
-                </span>
-            </div>
+
+    <img
+        src="images/GISP_CourseworkA.jpeg"
+        alt="GISCI professional development coursework and training record"
+        class="coursework-image"
+        loading="lazy">
+
+    <img
+        src="images/GISP_CourseworkB.jpeg"
+        alt="Additional GISCI professional development coursework and training record"
+        class="coursework-image"
+        loading="lazy">
+
+</div>
 
             <p class="development-caption">
                 A visual record of ongoing professional development and commitment
